@@ -20,7 +20,7 @@ export const Drink = (props) => {
 
   const drinkInfoElm = document.createElement('div');
   drinkInfoElm.classList.add('drink__info');
-  root.appendChild(drinkInfoElm);
+  drinkProductElm.appendChild(drinkInfoElm);
 
   const nameElm = document.createElement('h3');
   nameElm.textContent = `${props.name}`;
@@ -44,7 +44,6 @@ export const Drink = (props) => {
   btnDivElm.appendChild(buttonElm);
 
   //objednání
-  let ordered;
   buttonElm.addEventListener('click', () => {
     drinkCupElm.classList.toggle('drink__cup--selected');
     if (props.ordered === false) {
