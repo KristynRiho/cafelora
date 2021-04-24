@@ -1,6 +1,6 @@
 import './style.css';
 
-import { Layer } from './Layer/index.js';
+import { Drink } from './Drink/index.js';
 
 //schování navigace a zobrazení
 const navBtnElm = document.querySelector('#nav-btn');
@@ -16,29 +16,14 @@ for (let i = 0; i < allNavItems.length; i++) {
   });
 }
 
-//objednání
-let ordered = false;
-const orderBtnElm = document.querySelector('.order-btn');
-orderBtnElm.addEventListener('click', () => {
-  document
-    .querySelector('.drink__cup')
-    .classList.toggle('drink__cup--selected');
-  if (ordered === false) {
-    orderBtnElm.textContent = 'Zrušit';
-    ordered = true;
-  } else {
-    orderBtnElm.textContent = 'Objednat';
-    ordered = false;
-  }
-});
-
-//ingredience jako komponenty
+//ingredience jako komponenty***********************
 // const data = {
 //   color: '#feeeca',
 //   label: 'mléčná pěnička',
 // };
 
-const layerContainerElm = document.querySelector('.layer-container');
+//const layerContainerElm = document.querySelector('.layer-container');
+
 // layerContainerElm.innerHTML = Layer(data);
 // layerContainerElm.innerHTML += Layer({
 //   color: '#fed7b0',
@@ -49,46 +34,87 @@ const layerContainerElm = document.querySelector('.layer-container');
 //   label: 'espresso',
 // });
 
-//seznam ingrediencí
-const layers = [
+//seznam ingrediencí***************************
+
+// const layers = [
+//   {
+//     color: '#feeeca',
+//     label: 'mléčná pěna',
+//   },
+//   {
+//     color: '#fed7b0',
+//     label: 'teplé mléko',
+//   },
+//   {
+//     color: '#613916',
+//     label: 'espresso',
+//   },
+// ];
+
+// layers.forEach((item) => {
+//   layerContainerElm.innerHTML += Layer(item);
+// });
+
+//Nápoj jako komponenta
+const data2 = {
+  id: 'romano',
+  name: 'Romano',
+  ordered: false,
+  layers: [
+    {
+      color: '#fbdf5b',
+      label: 'citrón',
+    },
+    {
+      color: '#613916',
+      label: 'espresso',
+    },
+  ],
+};
+
+console.log(Drink(data2));
+
+const listElm = document.querySelector('.drinks-list');
+listElm.appendChild(Drink(data2));
+
+//seznam nápojů***************************
+const drinks = [
   {
-    color: '#feeeca',
-    label: 'mléčná pěna',
+    id: 'cappuccino',
+    name: 'Cappuccino',
+    ordered: false,
+    layers: [
+      {
+        color: '#feeeca',
+        label: 'mléčná pěna',
+      },
+      {
+        color: '#fed7b0',
+        label: 'teplé mléko',
+      },
+      {
+        color: '#613916',
+        label: 'espresso',
+      },
+    ],
   },
   {
-    color: '#fed7b0',
-    label: 'teplé mléko',
-  },
-  {
-    color: '#613916',
-    label: 'espresso',
+    id: 'romano',
+    name: 'Romano',
+    ordered: false,
+    layers: [
+      {
+        color: '#fbdf5b',
+        label: 'citrón',
+      },
+      {
+        color: '#613916',
+        label: 'espresso',
+      },
+    ],
   },
 ];
 
-layers.forEach((item) => {
-  layerContainerElm.innerHTML += Layer(item);
+drinks.forEach((item) => {
+  listElm.appendChild(Drink(item));
 });
-
-//Nápoj jako komponenta
-// const Drink = (props) => {
-//   const root = document.createElement('div');
-//   root.classList.add('layer-container');
-
-//   return root;
-// };
-
-// const data2 = {
-//   id: 'romano',
-//   name: 'Romano',
-//   ordered: false,
-//   layers: [
-//     {
-//       color: '#fbdf5b',
-//       label: 'citrón',
-//     },
-//     {
-//       color: '#613916',
-//       label: 'espresso',
-//     },
-//   ],
-// };
