@@ -234,12 +234,26 @@ nav a:hover {
 .gallery {
   padding-top: 0;
   height: 100vh;
+  display: flex;
+  justify-content: flex-start;
 
   color: white;
-  background-image: url('./img/gallery.jpg');
+  background-image: linear-gradient(
+      rgba(128, 128, 128, 0.725),
+      rgba(128, 128, 128, 0)
+    ),
+    url('./img/gallery.jpg');
   background-size: cover;
   background-position: top center;
   background-attachment: fixed;
+}
+
+.gallery__description {
+  font-size: 28px;
+  font-weight: 600;
+  padding: 10% 5%;
+  letter-spacing: 1.3px;
+  text-shadow: 1px 1px 5px black;
 }
 
 .contacts {
@@ -274,6 +288,10 @@ nav a:hover {
 
   nav {
     width: initial;
+  }
+
+  .nav-btn {
+    display: none;
   }
 
   nav a {
