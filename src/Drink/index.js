@@ -49,7 +49,7 @@ export const Drink = (props) => {
     drinkCupElm.classList.toggle('drink__cup--selected');
     if (props.ordered === false) {
       buttonElm.textContent = 'Zrušit';
-      ordered = true;
+      props.ordered = true;
     } else {
       buttonElm.textContent = 'Objednat';
       props.ordered = false;
